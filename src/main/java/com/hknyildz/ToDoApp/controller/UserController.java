@@ -1,11 +1,12 @@
 package com.hknyildz.ToDoApp.controller;
 
+import com.hknyildz.ToDoApp.dto.ActionsDto;
 import com.hknyildz.ToDoApp.dto.UserDto;
+import com.hknyildz.ToDoApp.model.Action;
 import com.hknyildz.ToDoApp.model.User;
 import com.hknyildz.ToDoApp.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +31,11 @@ public class UserController {
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public List<User> list() {
         return userService.getAll();
+    }
+
+    @RequestMapping(value = "/{userName}", method = RequestMethod.GET)
+    public List<ActionsDto> getActionsOfUser(@PathVariable String userName) {
+        return userService.getActionsByUserName(userName);
     }
 
 }

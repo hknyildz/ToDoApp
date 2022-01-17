@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class ActionDapImpl implements IActionDao {
+public class ActionDaoImpl implements IActionDao {
 
     @Autowired
     private IActionRepository repository;
@@ -33,6 +33,9 @@ public class ActionDapImpl implements IActionDao {
 
     @Override
     public List<Action> getAllActions() {
-        return repository.findAll();
+
+        List<Action> list = (List<Action>) repository.findAll();
+        return list;
+
     }
 }

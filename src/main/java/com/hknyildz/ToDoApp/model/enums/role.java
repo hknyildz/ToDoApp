@@ -1,4 +1,4 @@
-package com.hknyildz.ToDoApp.model;
+package com.hknyildz.ToDoApp.model.enums;
 
 public enum role {
     USER,

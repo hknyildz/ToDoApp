@@ -11,6 +11,7 @@ import org.springframework.data.couchbase.core.mapping.id.GeneratedValue;
 import org.springframework.data.couchbase.core.mapping.id.GenerationStrategy;
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,6 +19,7 @@ import java.util.Set;
 @Document
 @Setter
 @Getter
+
 public class User {
 
     @Id
@@ -36,10 +38,6 @@ public class User {
 
     private String role;
 
-
-
-//    @
-//    @JsonIgnore
     @Field
-   private Set<Action> actions=new HashSet<>();
+   private List<Action> actions=new ArrayList<>();
 }

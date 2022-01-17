@@ -1,9 +1,11 @@
 package com.hknyildz.ToDoApp.serviceImpls;
 
 import com.hknyildz.ToDoApp.dao.IUserDao;
+import com.hknyildz.ToDoApp.dto.ActionsDto;
 import com.hknyildz.ToDoApp.dto.UserDto;
+import com.hknyildz.ToDoApp.model.Action;
 import com.hknyildz.ToDoApp.model.User;
-import com.hknyildz.ToDoApp.model.role;
+import com.hknyildz.ToDoApp.model.enums.role;
 import com.hknyildz.ToDoApp.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -36,11 +38,19 @@ public class UserServiceImpl implements IUserService {
             throw new Exception("This email is already exist");
         }
 
-        return userDao.createUser(user);
+        return userDao.saveUser(user);
     }
 
     @Override
     public List<User> getAll() {
         return userDao.getAll();
     }
+
+    @Override
+    public List<ActionsDto> getActionsByUserName(String userName) {
+//        User currentUser = userDao.getByUserName(userName);
+        return userDao.getActionsByUserName(userName);
+    }
+
+
 }

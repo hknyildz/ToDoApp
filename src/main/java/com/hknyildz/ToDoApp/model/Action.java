@@ -1,5 +1,7 @@
 package com.hknyildz.ToDoApp.model;
 
+import com.couchbase.client.java.search.queries.BooleanFieldQuery;
+import com.hknyildz.ToDoApp.model.enums.Status;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -11,6 +13,7 @@ import org.springframework.data.couchbase.core.mapping.id.GenerationStrategy;
 @Document
 @Getter
 @Setter
+
 public class Action {
 
     @Id
@@ -19,10 +22,10 @@ public class Action {
 
     private String title;
 
-    private Boolean action;
+    private Status status;
 
+    private Long userId;
 //    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
-    @Field
-    private User user;
+
 
 }
